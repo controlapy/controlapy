@@ -1,0 +1,15 @@
+- [x] Registrar Dominio
+- [x] Levantar mails servers
+- [x] Registrarse en twitter
+- [x] Registrarse en DNCP
+- [x] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
