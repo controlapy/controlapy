@@ -1,0 +1,13 @@
+{% extends 'beneficiario/base.html' %}
+
+{% block content %}
+    {% for beneficiario in beneficiarios %}
+        <div class="post">
+            <div class="date">
+                {{ beneficiario.published_date }}
+            </div>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ beneficiario.cedula }}</a></h2>
+            <p>{{ beneficiario.nombreApellido|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

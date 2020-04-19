@@ -1,0 +1,21 @@
+{% extends 'beneficiario/base.html' %}
+
+{% block content %}
+    <div class="nangareko">
+        <h2>{{ nangareko.cedula }}</h2>
+        <p>{{ nangareko.nombreApellido|linebreaksbr }}</p>
+        <p>{{ nangareko.departamento|linebreaksbr }}</p>
+        <p>{{ nangareko.distrito|linebreaksbr }}</p>
+        <p>{{ nangareko.programa|linebreaksbr }}</p>
+        <p>{{ nangareko.denuncia|linebreaksbr }}</p>
+    </div>
+    <div class="pytyvo">
+        <h2>{{ pytyvo.cedula }}</h2>
+        <p>{{ pytyvo.nombreApellido|linebreaksbr }}</p>
+        <p>{{ pytyvo.departamento|linebreaksbr }}</p>
+        <p>{{ pytyvo.distrito|linebreaksbr }}</p>
+        <p>{{ pytyvo.programa|linebreaksbr }}</p>
+        <p>{{ pytyvo.denuncia|linebreaksbr }}</p>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'beneficiario/base.html' %}
+
+{% block content %}
+    <h2>Buscar Beneficiario</h2>
+    <form method="POST" class="beneficiario-form"  required action="/beneficiario/">{% csrf_token %}
+        <label for="cedula">Cedula de Identidad Número:</label> 
+        <input type="text" name="cedula" id="cedula" value="{{ cedula }}"/>
+        <button type="submit" class="search btn btn-default">Buscar</button>
+    </form>
+{% endblock %}
