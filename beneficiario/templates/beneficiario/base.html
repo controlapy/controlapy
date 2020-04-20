@@ -1,26 +1,108 @@
 {% load static %}
-<html>
+<!DOCTYPE html>
+<html lang = "es">
     <head>
         <title>El Buscador del Contralor Ciudadano</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'css/beneficiario.css' %}">
+        <link rel="shortcut icon" href="{% static 'img/favicon.ico' type='image/x-icon' %}">
+        <script>
+
+            var _gaq = _gaq || [];
+             _gaq.push(['_setAccount', 'UA-23019901-1']);
+             _gaq.push(['_setDomainName', "bootswatch.com"]);
+               _gaq.push(['_setAllowLinker', true]);
+             _gaq.push(['_trackPageview']);
+       
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+       
+        </script>
     </head>
     <body>
-        <div class="page-header">
-            {% if user.is_authenticated %}
-                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            {% endif %}
-            <h1><a href="/">El Buscador del Contralor Ciudadano</a></h1>
-        </div>
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                {% block content %}
-                {% endblock %}
+        <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+            <!-- Navigation -->
+            <div class="container">
+                <svg width="96px" height="96px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                    <path id="time-3-icon" .../>
+                </svg>
+                <a class="navbar-brand" href="/"><img src="{% static 'img/isotipoBlanco.svg' %}" alt="ControlaPY"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="herramientas">Herramientas <span class="caret"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="herramientas">
+                                <a class="dropdown-item" href="/beneficiario">Buscador <span class="sr-only">(current)</span></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/">Blog</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/" disabled>Acerca de..</a>
+                        </li>
+                    </ul>
                 </div>
+                </nav>
+            </div>
+            <!-- 
+            <header class="page-header header container-fluid">
+                <div class="overlay"></div>
+                <div class="description">
+                    <h1>Bienvenido al Buscador del Beneficiario de la Contraloría Ciudadana!</h1>
+                    <p>Este es un servicio gratuito donde podrá verificar la lista de beneficiarios de los programas Ñangareko y Pytyvo.</p>
+                    <button class="btn btn-outline-secondary btn-lg">Cuéntame más!</button>
+                </div>
+            </header>
+            -->
+        </div>
+        <!-- Page Content -->
+        <div class="bs-docs-section clearfix">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div> 
             </div>
         </div>
+        <!-- /.container -->
+        <!-- footer -->
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12">
+                        <a class="navbar-brand" href="/"><img src="{% static 'img/controlapy.svgz' %}" alt="ControlaPY"></a>
+                        <h6 class="text-uppercase font-weight-bold">Transparencia y Control Ciudadano como principio</h6>
+                        <p>Este servicio tiene como eje central la participación ciudadana en la transparencia y control de la gestión pública (incluidos los asuntos ambientales) en Paraguay. </p>
+                        <p>En lo posible se mostrará las fuentes oficiales de datos, si es que son proveídas por las instituciones.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <h6 class="text-uppercase font-weight-bold">Contacto</h6>
+                        <p>Algún lugar de Internet
+                        <br/>contralor@controlapy.org
+                        <br/><a href="https://t.me/ControlaPY" class="top-menu">Grupo Telegram</a>
+                        <br/><a href="https://chat.whatsapp.com/G48cACMT2Z6FF3rOavw0nZ" class="top-menu">Grupo Whatsapp</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright text-center">🄯 2020 Copyleft: ControlaPY.org</div>
+        </footer>
+        <!-- /footer -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="{% static 'js/beneficiario.js' %}"></script>
+        <!-- Cuerpo -->
     </body>
 </html>

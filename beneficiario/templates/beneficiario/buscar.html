@@ -1,10 +1,84 @@
 {% extends 'beneficiario/base.html' %}
 
 {% block content %}
+<div class="bs-docs-section">
     <h2>Buscar Beneficiario</h2>
-    <form method="POST" class="beneficiario-form"  required action="/beneficiario/">{% csrf_token %}
-        <label for="cedula">Cedula de Identidad Número:</label> 
-        <input type="text" name="cedula" id="cedula" value="{{ cedula }}"/>
-        <button type="submit" class="search btn btn-default">Buscar</button>
+    <form method="POST" class="form-inline my-2 my-lg-0"  required action="/beneficiario/">{% csrf_token %}
+        <input class="form-control mr-sm-2" placeholder="Cédula de Identidad Número" type="text" name="cedula" id="cedula" value="{{ cedula }}"/>
+        <button type="submit" class="btn btn-secondary my-2 my-sm-0">Buscar</button>
     </form>
-{% endblock %}
+    <div class="bs-docs-section">
+        <div class="col-lg-14">
+            <h1 id="tables">Cedula de Identidad Policial: {{ nangareko.cedula }}</h1>
+        </div>
+
+        <div class="bs-component">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Base</th>
+                        <th scope="col">Nombre y Apellido</th>
+                        <th scope="col">Departamento</th>
+                        <th scope="col">Distrito</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table_active">
+                        <th scope="row">Ñangareko</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Pytyvo</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IPS</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">SET</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">SFP</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">MJ</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Tekopora</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Jubilados</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="bs-component" >
+            <a href="/" class="btn btn-secondary">
+            <button type="submit" class="btn btn-secondary">Volver</button>
+            </a>
+        </div>    
+    </div>
+</div>
+    {% endblock %}

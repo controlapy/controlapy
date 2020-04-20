@@ -1,30 +1,86 @@
 {% extends 'beneficiario/base.html' %}
 
 {% block content %}
-    <h2>Cedula de Identidad Policial: {{ nangareko.cedula }}</h2>
-    <table class="table">
-        <caption>Cedula encontrada en</caption>
-        <thead>
-        <tr>
-            <th scope="col">Base</th>
-            <th scope="col">Nombre y Apellido</th>
-            <th scope="col">Departamento</th>
-            <th scope="col">Distrito</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th scope="row">Ñangareko</th>
-            <td>{{ nangareko.nombreApellido|linebreaksbr }}</td>
-            <td>{{ nangareko.departamento|linebreaksbr }}</td>
-            <td>{{ nangareko.distrito|linebreaksbr }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Pytyvo</th>
-            <td>{{ pytyvo.nombreApellido|linebreaksbr }}</td>
-            <td>{{ pytyvo.departamento|linebreaksbr }}</td>
-            <td>{{ pytyvo.distrito|linebreaksbr }}</td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="bs-docs-section clearfix">
+        <div class="bs-component">
+            <h2>Buscar Beneficiario</h2>
+            <form method="POST" class="form-inline my-2 my-lg-0"  required action="/beneficiario/">{% csrf_token %}
+                <input class="form-control mr-sm-2" placeholder="Cédula de Identidad Número" type="text" name="cedula" id="cedula" value="{{ cedula }}"/>
+                <button type="submit" class="btn btn-secondary my-2 my-sm-0">Buscar</button>
+            </form>
+        </div>
+    </div>
+    <div class="bs-docs-section">    
+        <div class="col-lg-14">
+            <h4 id="tables">Cedula de Identidad Policial: {{ nangareko.cedula }}</h4>
+        </div>
+        <div class="bs-component">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Base</th>
+                        <th scope="col">Nombre y Apellido</th>
+                        <th scope="col">Departamento</th>
+                        <th scope="col">Distrito</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table_active">
+                        <th scope="row">Ñangareko</th>
+                        <td>{{ nangareko.nombreApellido|linebreaksbr }}</td>
+                        <td>{{ nangareko.departamento|linebreaksbr }}</td>
+                        <td>{{ nangareko.distrito|linebreaksbr }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Pytyvo</th>
+                        <td>{{ pytyvo.nombreApellido|linebreaksbr }}</td>
+                        <td>{{ pytyvo.departamento|linebreaksbr }}</td>
+                        <td>{{ pytyvo.distrito|linebreaksbr }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IPS</th>
+                        <td>{{ ips.nombreApellido|linebreaksbr }}</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">SET</th>
+                        <td>{{ set.nombreApellido|linebreaksbr }}</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">SFP</th>
+                        <td>{{ sfp.nombreApellido|linebreaksbr }}</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">MJ</th>
+                        <td>{{ mj.nombreApellido|linebreaksbr }}</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Tekopora</th>
+                        <td>{{ tekopora.nombreApellido|linebreaksbr }}</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Jubilados</th>
+                        <td>{{ jubilado.nombreApellido|linebreaksbr }}</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                    </tr>
+                </tbody>
+            </table>        
+            <div class="bs-component" >
+                <a href="/" class="btn btn-secondary">
+                <button type="submit" class="btn btn-secondary">Volver</button>
+                </a>
+            </div>    
+    
+        </div>
+    </div>
 {% endblock %}
