@@ -1,0 +1,51 @@
+{% extends 'beneficiario/base.html' %}
+
+{% block content %}
+<div class="bs-docs-section">
+    <h2>Datos contrastados</h2>
+    <div class="bs-docs-section">
+        <div class="col-lg-14">
+            <h1 id="tables">Sobre los datos que poseemos</h1>
+        </div>
+
+        <div class="bs-component">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Base</th>
+                        <th scope="col">URL</th>
+                        <th scope="col">Inconveniente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table_active">
+                        <th scope="row">Ñangareko</th>
+                        <td><a href="https://drive.google.com/file/d/1bN_v0Nd31d2oDs4QHd4dguhm6Wa4tnua/view" class="top-menu">Beneficiarios</a></td>
+                        <td> (martes 21/04/2020), Lastimosamente la SEN disponibilizó solo un pdf, el cual fue procesado</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Pytyvo</th>
+                        <td><a href="https://drive.google.com/drive/folders/1Y7bO7WsqesKi67zczUup0m8HzL9BQE3_" class="top-menu">Beneficiarios</a></td>
+                        <td>Total:890067 (martes 21/04/2020), Los archivos no siempre se puede bajar y estan con duplicados.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IPS</th>
+                        <td><a href="https://servicios.ips.gov.py/consulta_asegurado/comprobacion_de_derecho_externo.php" class="top-menu">Asegurados</a></td>
+                        <td>Se utilizó un webscraper para bajar los datos </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">SET</th>
+                        <td><a href="https://www.set.gov.py/portal/PARAGUAY-SET/InformesPeriodicos?folder-id=repository:collaboration:/sites/PARAGUAY-SET/categories/SET/Informes%20Periodicos/listado-de-ruc-con-sus-equivalencias" class="top-menu">RUC</a></td>
+                        <td>Total:1099429 (martes 21/04/2020), En la base no se registra si tuvo o no movimientos, se tuvo que limpiar la tabla</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">SFP</th>
+                        <td><a href="https://datos.sfp.gov.py/data/funcionarios/download" class="top-menu">Funcionarios Públicos</a></td>
+                        <td>Total:282980 (martes 21/04/2020), Se utiliza la de febrero ya que no esta actualizada a abril</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -17,10 +17,13 @@ def list(request, cedula):
     beneficiarios = Beneficiario.objects.filter(cedula=cedula).order_by('cedula')
     return render(request, 'beneficiario/list.html', {'beneficiarios': beneficiarios})
 
-def detail(request, cedula):
+def beneficiario_detail(request, cedula):
     nangareko = get_object_or_404(Nangareko, cedula=cedula)
     pytyvo = get_object_or_404(Pytyvo, cedula=cedula)
     return render(request, 'beneficiario/detail.html', {'nangareko': nangareko, 'pytyvo': pytyvo})
+
+def beneficiario_advertencia(request, cedula):
+    return render(request, 'beneficiario/advertencia.html')
 
 #def detail(request, cedula):
 #    if request.method == "POST":
@@ -39,7 +42,7 @@ def detail(request, cedula):
 #    return render(request, 'beneficiario/buscar.html', {'form': form})
 
 
-def buscar(request):
+def beneficiario_buscar(request):
     if request.method == "POST":
         cedula = request.POST.get("cedula","")
         print(cedula)
