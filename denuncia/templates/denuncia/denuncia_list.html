@@ -1,0 +1,43 @@
+{% extends 'denuncia/base.html' %}
+
+{% block content %}
+        <div class="bs-docs-section clearfix">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-14 col-md-12 col-md-8 col-md-4">
+                        <div class="bs-component">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Cedula</th>
+                                        <th scope="col">Nombre y Apellido</th>
+                                        <th scope="col">Celular</th>
+                                        <th scope="col">Denuncia</th>
+                                        <th scope="col">Fecha Publicación</th>
+                                    </tr>
+                                </thead>
+                                <h2><a class="tables" href="{% url 'denuncia_detail' denuncia.id %}">{{ denuncia.cedula }}</a></h2>
+
+                                <tbody>
+                                    {% for denuncia in denuncias %}
+                                    <tr class="table_active">
+                                        <th scope="row">{{ denuncia.cedula }}</th>
+                                        <td>{{ denuncia.nombreApellido }}</td>
+                                        <td>{{ denuncia.celular }}</td>
+                                        <td>{{ denuncia.denunciaTexto|linebreaksbr }}</td>
+                                        <td>{{ denuncia.published_date }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>        
+                            <div class="bs-component" >
+                                <a href="/" class="btn btn-secondary">
+                                <button type="submit" class="btn btn-secondary">Volver</button>
+                                </a>
+                            </div>    
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+{% endblock %}

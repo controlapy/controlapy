@@ -12,7 +12,6 @@ from django.shortcuts import render, get_object_or_404
 from .forms import BeneficiarioForm
 from django.shortcuts import redirect
 
-
 def list(request, cedula):
     beneficiarios = Beneficiario.objects.filter(cedula=cedula).order_by('cedula')
     return render(request, 'beneficiario/list.html', {'beneficiarios': beneficiarios})
@@ -25,27 +24,9 @@ def beneficiario_detail(request, cedula):
 def beneficiario_advertencia(request, cedula):
     return render(request, 'beneficiario/advertencia.html')
 
-#def detail(request, cedula):
-#    if request.method == "POST":
-#        form = BeneficiarioForm(request.POST)
-#        if form.is_valid():
-#            print(form)
-#            cedula = form.cedula
-#            print (cedula)
-#            beneficiario = get_object_or_404(Beneficiario, cedula=cedula)
-#            print (beneficiario)
-#            return redirect('beneficiario/detail.html', {'beneficiario': beneficiario})
-#
-#            return render(request, 'beneficiario/beneficiario_detail.html', {'beneficiario': beneficiario})
-#    else:
-#        form = BeneficiarioForm()
-#    return render(request, 'beneficiario/buscar.html', {'form': form})
-
-
 def beneficiario_buscar(request):
     if request.method == "POST":
         cedula = request.POST.get("cedula","")
-        print(cedula)
         try:
             nangareko = Nangareko.objects.get(cedula=cedula)
         except Nangareko.DoesNotExist:
@@ -89,10 +70,6 @@ def beneficiario_buscar(request):
                 'tekopora': tekopora,
                 'jubilado': jubilado
             })
-
-#            return redirect('beneficiario/detail/', {'cedula': cedula})
-#
-#            return render(request, 'beneficiario/beneficiario_detail.html', {'beneficiario': beneficiario})
     else:
         form = BeneficiarioForm()
     return render(request, 'beneficiario/buscar.html', {'form': form})
