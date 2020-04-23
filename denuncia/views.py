@@ -7,7 +7,7 @@ from .models import Denuncia
 
 
 def denuncia_list(request):
-    denuncias = Denuncia.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    denuncias = Denuncia.objects.order_by('published_date')
     return render(request, 'denuncia/denuncia_list.html', {'denuncias': denuncias})
 
 def denuncia_detail(request, pk):

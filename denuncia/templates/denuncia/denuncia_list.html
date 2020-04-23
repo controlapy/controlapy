@@ -16,12 +16,12 @@
                                         <th scope="col">Fecha Publicación</th>
                                     </tr>
                                 </thead>
-                                <h2><a class="tables" href="{% url 'denuncia_detail' denuncia.id %}">{{ denuncia.cedula }}</a></h2>
-
+                                <h2>Tabla </h2>
                                 <tbody>
                                     {% for denuncia in denuncias %}
+                            
                                     <tr class="table_active">
-                                        <th scope="row">{{ denuncia.cedula }}</th>
+                                        <th scope="row"><a href="{% url 'denuncia:denuncia_detail' denuncia.id %}">{{ denuncia.cedula }}</a></th>
                                         <td>{{ denuncia.nombreApellido }}</td>
                                         <td>{{ denuncia.celular }}</td>
                                         <td>{{ denuncia.denunciaTexto|linebreaksbr }}</td>

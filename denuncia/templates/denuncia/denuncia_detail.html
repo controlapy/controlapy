@@ -2,19 +2,20 @@
 
 {% block content %}
     <div class="post">
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'denuncia:denuncia_edit' pk=denuncia.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        <h2 class="page-header">Cedula de Identidad: {{ denuncia.cedula }}</h2>
+        <p>Nombre y Apellido : {{ denuncia.nombreApellido }}</p>
+        <p>Texto de la Denuncia: {{ denuncia.denunciaTexto|linebreaksbr }}</p>
         {% if denuncia.published_date %}
             <div class="date">
                 {{ denuncia.published_date }}
             </div>
         {% endif %}
-        {% if user.is_authenticated %}
-            <a class="btn btn-default" href="{% url 'denuncia_edit' pk=denuncia.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        {% endif %}
-        <h2 class="page-header">{{ denuncia.cedula }}</h2>
-        <p>{{ denuncia.text|linebreaksbr }}</p>
-    </div>
+</div>
     <div class="bs-component" >
-        <a href="/" class="btn btn-secondary">
+        <a href="/denuncia/" class="btn btn-secondary">
         <button type="submit" class="btn btn-secondary">Volver</button>
         </a>
     </div>
