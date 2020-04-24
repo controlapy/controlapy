@@ -14,7 +14,7 @@ def denuncia_detail(request, pk):
     denuncia = get_object_or_404(Denuncia, pk=pk)
     return render(request, 'denuncia/denuncia_detail.html', {'denuncia': denuncia})
 
-def denuncia_nuevo(request):
+def denuncia_new(request):
     if request.method == "POST":
         form = DenunciaForm(request.POST)
         if form.is_valid():
@@ -26,6 +26,7 @@ def denuncia_nuevo(request):
             denuncia.save()
             return redirect('denuncia_detail', denuncia.id)
     else:
+        print("denuncia nuevo else")
         form = DenunciaForm()
     return render(request, 'denuncia/denuncia_edit.html', {'form': form})
 

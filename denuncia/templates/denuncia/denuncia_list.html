@@ -5,36 +5,66 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-14 col-md-12 col-md-8 col-md-4">
-                        <div class="bs-component">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Cedula</th>
-                                        <th scope="col">Nombre y Apellido</th>
-                                        <th scope="col">Celular</th>
-                                        <th scope="col">Denuncia</th>
-                                        <th scope="col">Fecha Publicación</th>
-                                    </tr>
-                                </thead>
-                                <h2>Tabla </h2>
-                                <tbody>
-                                    {% for denuncia in denuncias %}
-                            
-                                    <tr class="table_active">
-                                        <th scope="row"><a href="{% url 'denuncia:denuncia_detail' denuncia.id %}">{{ denuncia.cedula }}</a></th>
-                                        <td>{{ denuncia.nombreApellido }}</td>
-                                        <td>{{ denuncia.celular }}</td>
-                                        <td>{{ denuncia.denunciaTexto|linebreaksbr }}</td>
-                                        <td>{{ denuncia.published_date }}</td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>        
-                            <div class="bs-component" >
-                                <a href="/" class="btn btn-secondary">
-                                <button type="submit" class="btn btn-secondary">Volver</button>
-                                </a>
-                            </div>    
+                        <div class="card card-cascade narrower">
+                            <!--Card image-->
+                            <div
+                            class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+                                <div>
+                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                    <i class="fas fa-th-large mt-0"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                    <i class="fas fa-columns mt-0"></i>
+                                    </button>
+                                </div>
+
+                                <a href="" class="white-text mx-3">Denuncias</a>
+
+                                <div>
+                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                    <i class="fas fa-pencil-alt mt-0"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                    <i class="far fa-trash-alt mt-0"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                    <i class="fas fa-info-circle mt-0"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                            <!--/Card image-->
+                            <div class="bs-component table-responsive text-nowrap">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Cedula</th>
+                                            <th scope="col">Nombre y Apellido</th>
+                                            <th scope="col">Celular</th>
+                                            <th scope="col">Denuncia</th>
+                                            <th scope="col">Fecha Publicación</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for denuncia in denuncias %}
+                                
+                                        <tr class="table_active">
+                                            <th scope="row"><a href="{% url 'denuncia:denuncia_detail' denuncia.id %}">{{ denuncia.cedula }}</a></th>
+                                            <td>{{ denuncia.nombreApellido }}</td>
+                                            <td>{{ denuncia.celular }}</td>
+                                            <td>{{ denuncia.denunciaTexto|linebreaksbr }}</td>
+                                            <td>{{ denuncia.published_date }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>        
+                                <div class="bs-component" >
+                                    <a href="/" class="btn btn-primary btn-sm">
+                                    <button type="submit" class="btn btn-primary btn-sm">Volver</button>
+                                    </a>
+                                </div>    
+                            </div>
                         </div>
                     </div>
                 </div> 
